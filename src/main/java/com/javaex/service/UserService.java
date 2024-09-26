@@ -44,5 +44,13 @@ public class UserService {
 		}
 
 	}
+	
+	// 회원정보수정폼(1명 데이터가져오기)
+	public UserVo exeEditForm(int no) {
+		System.out.println("UserService.exeEditForm()");
+
+		UserVo userVo = userDao.userSelectOneByNo(no);
+		return userVo;
+	}
 
 }

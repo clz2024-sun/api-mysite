@@ -36,4 +36,13 @@ public class UserDao {
 		return count;
 	}
 	
+	// no로 한명데이터 가져오기(회원정보수정 폼)
+	public UserVo userSelectOneByNo(int no) {
+		System.out.println("UserDao.userSelectOneByNo()");
+
+		UserVo userVo = sqlSession.selectOne("user.selectOneByNo", no);
+		return userVo;
+	}
+
+	
 }
