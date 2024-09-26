@@ -52,5 +52,14 @@ public class UserService {
 		UserVo userVo = userDao.userSelectOneByNo(no);
 		return userVo;
 	}
+	
+
+	// 회원정보 수정
+	public int exeEditUser(UserVo userVo) {
+		System.out.println("UserService.exeEditUser()");
+
+		int count = userDao.userUpdate(userVo);
+		return count;
+	}
 
 }

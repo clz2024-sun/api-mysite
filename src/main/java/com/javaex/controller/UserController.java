@@ -3,6 +3,7 @@ package com.javaex.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,8 +44,6 @@ public class UserController {
 		
 		//요청해더에서 토큰을 꺼내서 유효성을 체크한후 정상이면 no값을 꺼내준다
 		int no = JwtUtil.getNoFromHeader(request);
-		System.out.println(no);
-		
 		if(no != -1) {  //토큰정상
 			UserVo userVo = userService.exeEditForm(no);
 			return JsonResult.success(userVo);
@@ -52,7 +51,36 @@ public class UserController {
 		}else {//토큰비정상
 			return JsonResult.fail("토큰X, 비로그인, 변조");
 		}
+	}
+	
+	/* 회원정보수정 */
+	@PutMapping("/api/users/me")
+	public JsonResult editUser(@RequestBody UserVo userVo, HttpServletRequest request) {
+		System.out.println("UserController.editUser()");
+		
+		int no = JwtUtil.getNoFromHeader(request);
+		if(no != -1) { //토큰이 정상일때
+			userVo.setNo(no);
+			System.out.println(userVo);
+			int count = userService.exeEditUser(userVo);
+			System.out.println(count);
+			if(count == 1) {
+				//정상적으로 수정되었을때
+				userVo.setPassword(null);
+				userVo.setGender(null);
+				return JsonResult.success(userVo);
+			}else {
+				return JsonResult.fail("1");
+			}
+
+			
+		}else {//토큰이 비정상일때
+			return JsonResult.fail("토큰X, 비로그인, 변조");
+		}
 		
 	}
+	
+	
+	
 	
 }

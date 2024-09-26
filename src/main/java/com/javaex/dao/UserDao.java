@@ -43,6 +43,15 @@ public class UserDao {
 		UserVo userVo = sqlSession.selectOne("user.selectOneByNo", no);
 		return userVo;
 	}
+	
+	// 수정(회원정보수정)
+	public int userUpdate(UserVo userVo) {
+		System.out.println("UserDao.userUpdate()");
+
+		int count = sqlSession.update("user.update", userVo);
+		return count;
+	}
+
 
 	
 }
