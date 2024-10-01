@@ -6,10 +6,11 @@ name: Deploy mysite App
 #    inputs:
 
 
-on:     # 코드가 'master' 브랜치에 push 할 때 실행됨
+on:
   push:
     branches:
-      - master
+      - master # 또는 프로젝트의 기본 브랜치명
+
 	  
 jobs: # 작업을 정의
   build-and-deploy:     	#첫번째작업: 빌드 및 배포
