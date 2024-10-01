@@ -1,4 +1,4 @@
-name: Deploy attach App
+name: Deploy mysite App
 
 
 #on:
@@ -53,7 +53,7 @@ jobs: # 작업을 정의
             sudo docker stop mysite || true
             sudo docker rm mysite || true
             sudo docker run -d \
-              --name attach \
+              --name mysite \
               -p 9000:9000 \
               -v /home/ec2-user/upload:/app/upload \
               clz2024sun/mysite:latest
