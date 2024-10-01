@@ -9,7 +9,7 @@ name: Deploy attach App
 on:
   push:
     branches:
-      - master # 또는 프로젝트의 기본 브랜치명
+      - master # 마스터 브런치로 깃허브에 push되었을때
 
 jobs:
   build-and-deploy:
