@@ -44,11 +44,11 @@ jobs: # 작업을 정의
       - name: ssh to ec2	# 단계이름 'ssh to ec2(ec2에 ssh로 접근 mobaXterm에서 했던작업
         uses: appleboy/ssh-action@master # 깃허브에서 제공하는 ssh-action@master 기능 ssh사용
         with:
-          host: ${{ secrets.EC2_HOST }} # ec2서버의 ip (깃허브에 세팅된값)
-          username: ${{ secrets.EC2_USERNAME }} # ec2서버의 계정명 (깃허브에 세팅된값)
-          key: ${{ secrets.SSH_PRIVATE_KEY }} # web.pem 비번 (깃허브에 세팅된값)
+          host: ${{ secrets.EC2_HOST }} 
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            sudo mkdir -p /home/ec2-user/upload 
+            sudo mkdir -p /home/ec2-user/upload
             sudo docker pull clz2024sun/mysite:latest
             sudo docker stop mysite || true
             sudo docker rm mysite || true
