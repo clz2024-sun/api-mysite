@@ -41,8 +41,8 @@ jobs: # 작업을 정의
     runs-on: ubuntu-latest  # 가상의 최신우분투(리눅스종류임) 컴퓨터가 만들어짐
     steps:  # step은 job안쪽에 개별단계를 의미
       - uses: actions/checkout@v3 # 깃허브에서 제공하는 checkout@v3 기능 사용하여 소스가져오기
-      - name: ssh to ec2
-        uses: appleboy/ssh-action@master
+      - name: ssh to ec2	# 단계이름 'ssh to ec2(ec2에 ssh로 접근 mobaXterm에서 했던작업
+        uses: appleboy/ssh-action@master # 깃허브에서 제공하는 ssh-action@master 기능 ssh사용
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
