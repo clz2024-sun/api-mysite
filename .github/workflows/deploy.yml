@@ -1,16 +1,9 @@
 name: Deploy mysite App
 
-
-#on:
-#  workflow_dispatch:
-#    inputs:
-
-
 on:
   push:
     branches:
       - master # 또는 프로젝트의 기본 브랜치명
-
 	  
 jobs: # 작업을 정의
   build-and-deploy:     	#첫번째작업: 빌드 및 배포
