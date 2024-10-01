@@ -21,8 +21,8 @@ jobs: # 작업을 정의
       - name: Set up JDK 17			# 단계이름 'Set up JDK 17(jdk17설치)'
         uses: actions/setup-java@v2	# 깃허브에서 제공하는 setup-java@v2 기능 사용하여 JDK설치
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          java-version: '17'		# 자바버전 17
+          distribution: 'temurin'	# 'temurin' OpenJDK의 배포판 이름
 
       - name: Build with Maven
         run: mvn clean package
