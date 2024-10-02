@@ -39,7 +39,7 @@ public class AttachController {
 	@PostMapping("/api/attachs2")
 	public JsonResult form2(@ModelAttribute AttachVo2 attachVo2
 							/*,@RequestParam("content") String content*/) {
-		System.out.println("AttachController.form2() ");
+		System.out.println("AttachController.form2()  ");
 		
 		//System.out.println(content);
 		System.out.println(attachVo2);
