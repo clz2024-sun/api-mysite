@@ -50,13 +50,9 @@ jobs: # 작업을 정의.
           script: |
             sudo mkdir -p /home/ec2-user/upload			 
             sudo docker pull clz2024sun/mysite:latest
-
-            
-            if [ "$(sudo docker ps -q -f name=mysite)" ]; then
-              sudo docker stop mysite
-              sudo docker rm mysite
-            fi
-            
+			sudo docker image prune -f
+            sudo docker stop mysite || true
+			sudo docker rm mysite || true
             sudo docker run -d \
               --name mysite \
               -p 9000:9000 \
