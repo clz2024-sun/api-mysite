@@ -51,11 +51,10 @@ jobs: # 작업을 정의
             sudo mkdir -p /home/ec2-user/upload		
 			sudo docker stop mysite || true
 			sudo docker rm mysite || true	 
-			sudo docker rmi clz2024sun/mysite:latest
-			sudo docker pull clz2024sun/mysite:latest
+            sudo docker pull clz2024sun/mysite:latest
+          
             sudo docker run -d \
               --name mysite \
               -p 9000:9000 \
               -v /home/ec2-user/upload:/app/upload \
               clz2024sun/mysite:latest
-			  
