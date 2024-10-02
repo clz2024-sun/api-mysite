@@ -19,7 +19,7 @@ public class AttachController {
 	
 	@PostMapping("/api/attachs")
 	public JsonResult form(@RequestParam("profileImg") MultipartFile profileImg  ) {
-		System.out.println("AttachController.form()");
+		System.out.println("AttachController.form() ");
 		
 		String savaName = attachService.exeUpload(profileImg);
 		
