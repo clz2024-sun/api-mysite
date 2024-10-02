@@ -36,7 +36,7 @@ jobs: # 작업을 정의
         run: docker push clz2024sun/mysite:latest # 도커이미지빌드 명령어 도커허브/레파지토리:태그
 
          
-  SSH:  # 두번째작업: SSH
+  SSH:  # 두번째작업: SSH.
     needs: build-and-deploy # 첫번째작업인 build-and-deploy 작업이 완료된 후 실행
     runs-on: ubuntu-latest  # 가상의 최신우분투(리눅스종류임) 컴퓨터가 만들어짐
     steps:  # step은 job안쪽에 개별단계를 의미
