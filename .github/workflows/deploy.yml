@@ -53,8 +53,8 @@ jobs: # 작업을 정의
             sudo docker rm mysite || true
             sudo docker rmi mysite
             sudo docker pull clz2024sun/mysite:latest
-            sudo docker run -d \						#도커컨테이너 백그라운드로 실행
-              --name mysite \								#컨테이너명 mysite
-              -p 9000:9000 \								#포트번호설정
-              -v /home/ec2-user/upload:/app/upload \    	#이미지저장폴더연결
-              clz2024sun/mysite:latest                  	#사용할 도커 이미지
+            sudo docker run -d \						
+              --name mysite \							
+              -p 9000:9000 \							
+              -v /home/ec2-user/upload:/app/upload \    
+              clz2024sun/mysite:latest                  
